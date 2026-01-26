@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brink-Geluk Schalkwijk</title>
+
+  <!-- Snellere fontlading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigatiebalk bovenin -->
+<nav class="navbar">
+  <!-- Hamburgermenu links -->
+  <div class="hamburger" aria-label="Navigatiemenu openen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Contactknop rechts -->
+  <a href="#contact" class="contact-button">Contact</a>
+</nav>
+
+  <!-- Menu-overlay (wordt zichtbaar bij klik) -->
+  <div class="menu-overlay">
+    <a href="#">Home</a>
+    <a href="#">Over</a>
+    <a href="#">Projecten</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Hoofdafbeelding met tekst -->
+  <section class="hero hero-1">
+    <div class="hero-content">
+      <p class="hero-creed">Anja van Lunteren</p>
+      <h1>BRINKGELUK<br><span class="sub">Brink-Geluk is er voor iedereen. Wie het wil ervaren, komt naar de Brink in Schalkwijk. Over het bruggetje begint het: de rust, het kerkje, de moestuinen bij de daglonershuisjes (1903) en de bankjes die uitnodigen om even te blijven. Wat je koopt van Brink-Geluk, geef je door — want de opbrengst gaat naar Artsen Zonder Grenzen. En... koffie met gebak bij 'Barista de Dominee' of pannenkoeken bij Pand Pannenkoek iets verderop zijn gelukstrefpunten.</span></h1>
+     </div>
+  <a href="over.html" class="cta-button">Ontdek</a>
+</section>
+
+  <!-- Tweede sectie: Artsen Zonder Grenzen -->
+  <section class="hero hero-2">
+    <div class="hero-content">
+      <p class="hero-creed">OPBRENGST</p>
+      <h1>ARTSEN ZONDER GRENZEN<br><span class="sub">Artsen Zonder Grenzen is een humanitaire organisatie met artsen en hulpverleners, mensen met gezinnen, die hun werk doen waar het leven het kwetsbaarst is. Door hen te steunen, helpen we ook de mensen die daar in nood zijn. Via de QR-code gaat de opbrengst direct naar Artsen Zonder Grenzen — precies daar waar het nodig is.</span></h1>
+      </div>
+  <a href="over.html" class="cta-button">Ontdek</a>
+</section>
+
+  <!-- Derde sectie: Luchtfoto's -->
+  <section class="hero hero-3">
+    <div class="hero-content">
+      <p class="hero-creed">Paul Heijmink</p>
+      <h1>UNIEKE DORPSBEELDEN<br><span class="sub">Eén van de mooiste beelden deze winter werd door Paul vastgelegd vanuit de lucht. Unieke beelden, die uitnodigen om rustig te ontrafelen. Nooit eerder kreeg je deze kans om het dorp in de winter vanuit de lucht zo te zien. Paul zet zich graag in voor AZG en stelt enkele unieke exemplaren met handtekening ter beschikking.</span></h1>
+       </div>
+  <a href="project.html" class="cta-button">Ontdek</a>
+</section>
+
+  <!-- Vierde sectie: KERSTMARKT(JE) -->
+  <section class="hero hero-4">
+    <div class="hero-content">
+      <p class="hero-creed">KERSTMARKT(JE)</p>
+      <h1>HET KERSTVERHAAL OVER BRINK-GELUK<br><span class="sub">Er was eens... een klein karretje op de Brink, ergens in september. Terwijl de winter langzaam naderde, werd er binnen met aandacht en liefde gewerkt tijdens lange avonden: macramé engeltjes, vredesduifjes van klei, vetbollen en ornamenten voor in huis en kerstboom. Alles kwam samen tijdens een klein kerstmarktje, met zelfgebakken cake, glühwein, chocomelk en sfeervolle muziek — een moment om even samen te genieten.</span></h1>
+        </div>
+  <a href="over.html" class="cta-button">Ontdek</a>
+</section>
+<!-- Contactformulier -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2>Neem contact op</h2>
+    <p>Heb je een vraag of wil je meewerken aan Brink-Geluk? Stuur ons een bericht!</p>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-group">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" placeholder="Jouw naam" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Jouw e-mail" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" rows="5" placeholder="Hoe kunnen we je helpen?" required></textarea>
+      </div>
+    <button type="submit" class="submit-button">Verstuur bericht</button>
+    </form>
+  </div>
+</section>
+
+/* Verstuur-knop in formulier */
+.submit-button {
+  padding: 12px 30px;
+  background: #e4bb86;
+  color: white;
+  border: none;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 2rem auto 0;
+  width: fit-content;
+}
+
+.submit-button:hover {
+  background: white;
+  color: black;
+}
+  <!-- Footer -->
+  <footer>
+    <div class="sponsors">
+      <strong>Met dank aan</strong>
+      Brinkbewoners voor de verse groente, fruit, bloemen en het groen om kransen te maken ·  
+      Luchtfotokunst: Paul Heijmink · 
+      Kleine kunst voor kerstverkoop Rixt en Ria 
+    </div>
+    <div class="instagram">
+      <a href="https://instagram.com/brinkgeluk" target="_blank">Instagram: @brinkgeluk</a>
+    </div>
+  </footer>
+
+  <!-- Script onderaan -->
+  <script src="script.js"></script>
+</body>
+</html>
