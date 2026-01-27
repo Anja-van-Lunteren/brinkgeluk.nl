@@ -253,41 +253,52 @@ footer {
   color: #0077cc;
 }
 
-/* Contactformulier - vaste hoogte, zoals hero-secties */
+/* Contactformulier - verfijnd stijl */
 .contact-section {
-  height: 800px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-  background: #f8f8f8;
+  padding: 6rem 2rem;
+  background: #f5f1ea; /* Licht crème */
   color: #333;
   text-align: center;
   scroll-margin-top: 80px;
 }
 
 .contact-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #000;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: #333;
 }
 
 .contact-section p {
   max-width: 600px;
-  margin: 0 auto 2rem;
-  font-size: 1.1rem;
+  margin: 0 auto 2.5rem;
+  font-size: 0.95rem;
   color: #555;
+  line-height: 1.6;
 }
 
 .contact-container {
   max-width: 700px;
   margin: 0 auto;
+  padding: 2.5rem 2rem;
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
+
+/* Formuliervelden */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
 .form-group {
   text-align: left;
   margin-bottom: 1.5rem;
@@ -296,48 +307,83 @@ footer {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #333;
+  text-transform: none;
 }
 
 .form-group input,
+.form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px 12px;
   font-family: 'PT Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group textarea {
-  resize: vertical;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+  font-style: normal;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #e4bb86;
+  box-shadow: 0 0 0 2px rgba(228, 187, 134, 0.2);
+}
+
+/* Uitklapmenu */
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 30px;
+}
+
+/* Verstuurknop */
+.submit-button {
+  padding: 12px 30px;
+  background: #e4bb86;
+  color: white;
+  border: none;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.0rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 2rem auto 0;
+  width: fit-content;
+}
+
+.submit-button:hover {
+  background: white;
+  color: #333;
+  border: 1px solid #e4bb86;
 }
 
 /* Responsive: mobiel */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.0rem;
+  .form-row {
+    flex-direction: column;
+    gap: 0;
   }
-  .hero h1 .sub {
-    font-size: 0.95rem;
-  }
-  .hero-creed {
-    font-size: 0.95rem;
-  }
-  .menu-overlay a {
-    font-size: 1.5rem;
-  }
-  footer {
-    font-size: 0.9rem;
-  }
-  .hero-content {
-    padding-top: 8rem;
+  .contact-container {
+    padding: 2rem 1.5rem;
   }
   .contact-section {
     padding: 4rem 1rem;
-  }
-  .contact-container {
-    padding: 0 1rem;
   }
 }
