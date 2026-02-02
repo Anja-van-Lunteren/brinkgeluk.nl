@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Over Brink-Geluk</title>
+
+  <!-- Fonts en stijl -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
@@ -11,9 +13,10 @@
 </head>
 <body>
 
+<!-- Navigatie -->
 <nav class="navbar">
   <div class="nav-left">
-    <div class="hamburger">
+    <div class="hamburger" aria-label="Navigatiemenu openen">
       <span></span>
       <span></span>
       <span></span>
@@ -27,6 +30,7 @@
   </div>
 </nav>
 
+<!-- Grote foto bovenaan -->
 <section class="hero hero-single">
   <div class="hero-content">
     <h1>OVER BRINK-GELUK</h1>
@@ -34,15 +38,23 @@
   </div>
 </section>
 
+<!-- Inhoud: Wat is Brink-Geluk? -->
 <section class="content-section">
   <div class="content-container">
     <h2>HET BRINKKARRETJE</h2>
-    <p>Vers uit de moestuin zo op de kar. Iedere voorbijganger kan wat meenemen; kruiden, planten, fruit, bloemen, groente en soms een krans met als doel de opbrengst voor <strong>Artsen zonder Grenzen</strong>. Planten delen maakt de wereld groener en mooier want we gooien niets weg. Als er weer plantjes zijn dan is de kar er ook. Via Instagram kan je alle activiteiten van Brink-Geluk volgen en alle filmpjes bekijken. De link staat onderaan de pagina.</p>
-    <p>In september ben ik gestart met het initiatief omdat er teveel peren waren en ik de mogelijkheid zag om ze te verkopen voor het goede doel. De buurt omarmde het initiatief meteen en de volgende dag was de kar gevuld met walnoten, groente, bloemen en kweepeergelei van de Brinkbewoners. </p>
-   <p>De Brink-Geluk kerstmarkt was de kers op de taart. Er is in totaal 1300 euro aan donaties gedaan. De inzet van de Brinkbewoners, het meehelpen en het enthousiasme is echt geweldig. We blijven in actie met elkaar en voor elkaar! Brink-Geluk dat ben jij.</p>
+    <p>
+      Vers uit de moestuin zo op de kar. Iedere voorbijganger kan wat meenemen; kruiden, planten, fruit, bloemen, groente en soms een krans met als doel de opbrengst voor <strong>Artsen zonder Grenzen</strong>. Planten delen maakt de wereld groener en mooier want we gooien niets weg. Via Instagram kan je alle activiteiten van Brink-Geluk volgen en alle filmpjes bekijken. De link staat onderaan de pagina.
+    </p>
+    <p>
+      In september ben ik gestart met het initiatief omdat er teveel peren waren en ik de mogelijkheid zag om ze te verkopen voor het goede doel. De buurt omarmde het initiatief meteen en de volgende dag was de kar gevuld met walnoten, groente, bloemen en kweepeergelei van de Brinkbewoners.
+    </p>
+    <p>
+      De Brink-Geluk kerstmarkt was de kers op de taart. Er is in totaal 1300 euro aan donaties gedaan. De inzet van de Brinkbewoners, het meehelpen en het enthousiasme is echt geweldig. We blijven in actie met elkaar en voor elkaar! Brink-Geluk dat ben jij.
+    </p>
   </div>
 </section>
 
+<!-- Foto-grid -->
 <section class="gallery-section">
   <div class="gallery-grid">
     <figure class="gallery-item gallery-item-large">
@@ -70,8 +82,8 @@
       <div class="overlay"></div>
       <figcaption class="caption">Moestuinen voor de deur<br><small>Gedeeld geluk</small></figcaption>
     </figure>
-<figure class="gallery-item gallery-item-large">
-      <img src="afbeeldingen/over_bloemenzee_moestuin.jpg" alt="Brinkkar">
+    <figure class="gallery-item gallery-item-large">
+      <img src="afbeeldingen/over_bloemenzee_moestuin.jpg" alt="Bloemenzee moestuin">
       <div class="overlay"></div>
       <figcaption class="caption">Brink-Geluk<br><small>Een droomplek</small></figcaption>
     </figure>
@@ -83,6 +95,7 @@
   </div>
 </section>
 
+<!-- Footer -->
 <footer>
   <div class="sponsors">
     <strong>Met dank aan</strong>
@@ -93,6 +106,7 @@
   </div>
 </footer>
 
+<!-- JavaScript -->
 <script>
   const hamburger = document.querySelector('.hamburger');
   hamburger.addEventListener('click', () => {
