@@ -267,7 +267,7 @@ body {
 
 .content-container h2 {
   font-size: 1.8rem;
-  text-align: center;
+  text-align: left;
   margin-bottom: 2rem;
   color: #000;
   break-inside: avoid;
