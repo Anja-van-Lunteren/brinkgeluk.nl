@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Brinkgeluk Schalkwijk</title>
+    <link rel="icon" type="image/png" href="brinkgeluk_favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="nav-home">HOME</a>
+    </div>
+
+    <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-links">
+            <a href="over.html">Over</a>
+            <a href="doel.html">Doel</a>
+            <a href="aanbod.html">Aanbod</a>
+            <a href="terugblik.html">Terugblik</a>
+            <a href="index.html#open-contact">Contact</a>
+        </div>
+        <div class="menu-brand">BRINKGELUK</div>
+    </div>
+</nav>
+<section class="hero hero-home"> <div class="hero-content">
+        <p class="hero-creed">ANJA VAN LUNTEREN</p>
+        <h1>BRINKGELUK<br><span class="sub">Verse plantjes, kruiden, stekjes of groente uit de moestuinen staan op het karretje op de Brink in Schalkwijk.</span></h1>
+        <a href="over.html" class="cta-button">Over</a>
+    </div>
+</section>
+
+<section class="hero hero-2">
+    <div class="hero-content">
+        <p class="hero-creed">OPBRENGST</p>
+        <h1>Artsen zonder Grenzen<br><span class="sub">De opbrengst van BRINKGELUK is voor Artsen Zonder Grenzen. Zij helpen mensen in nood die medische hulp keihard nodig hebben.</span></h1>
+        <a href="doel.html" class="cta-button">DOEL</a>
+    </div>
+</section>
+
+<section class="hero hero-3">
+    <div class="hero-content">
+        <p class="hero-creed">DE MOESTUIN</p>
+        <h1>WAT LIGT ER OP HET KARRETJE?<br><span class="sub">Een combinatie van verse kruiden, stekjes en groenten.</span></h1>
+        <a href="aanbod.html" class="cta-button">Aanbod</a>
+    </div>
+</section>
+
+<section class="hero hero-4">
+    <div class="hero-content">
+        <p class="hero-creed">KERSTMARKT(JE)</p>
+        <h1>HET KERSTVERHAAL OVER BRINKGELUK<br>
+            <span class="sub">Er was eens een karretje op de Brink...
+            </span>
+        </h1>
+        <a href="terugblik.html" class="cta-button">Terugblik</a>
+    </div>
+</section>
+
+<section class="contact-trigger-section">
+    <div class="contact-container-simple">
+        <h2 id="open-contact">Heb je een vraag?</h2>
+    </div>
+</section>
+
+<section id="contact-form-section" class="contact-form-section" style="display: none;">
+    <div class="contact-container-simple">
+        <form id="contact-form" action="https://formspree.io/f/xkozqovy" method="POST">
+            <div class="form-group">
+                <label for="naam">Naam</label>
+                <input type="text" id="naam" name="naam" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+            <div class="form-group">
+                <label for="onderwerp">Ik heb een vraag over</label>
+                <select id="onderwerp" name="onderwerp" required>
+                    <option value="" disabled selected>Kies een categorie</option>
+                    <option value="aanbod">Aanbod op de kar</option>
+                    <option value="luchtfoto">Luchtfoto Paul Heijmink</option>
+                    <option value="kerstmarkt">Organiseren Kerstmarkt</option>
+                    <option value="andere vraag">Andere vraag</option>
+                </select>
+            </div>
+            <div class="form-group" id="vraag-group" style="display: none;">
+                <label for="vraag">Jouw vraag of reactie</label>
+                <textarea id="vraag" name="vraag" rows="4"></textarea>
+            </div>
+            <button type="submit" class="submit-button" id="submit-btn" style="display: none;">Verzenden</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-thanks">
+<strong>Met dank aan de</strong> Brinkbewoners die 
+<a href="https://actiezondergrenzen.nl/fundraisers/anja-van-lunteren" target="_blank" class="footer-link footer-link-block">Brinkgeluk voor Artsen zonder Grenzen</a> 
+ondersteunen en op alle mogelijke wijze meehelpen.
+</div>
+ <div class="instagram-footer">
+        <a href="https://instagram.com/brinkgeluk" target="_blank">
+            <img src="afbeeldingen/index_instagram_logo.png" alt="Instagram" class="insta-icon">
+            <span class="insta-handle">@brinkgeluk</span>
+        </a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,726 @@
+/* De 'Universele Reset' - dit zorgt dat padding de breedte niet beïnvloedt */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Forceer de nul-lijn voor de hele pagina */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Voorkomt horizontaal schuiven */
+}
+
+/* --- 1. RESET & BASIS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'PT Sans', sans-serif; color: #000; background: #fff; line-height: 1.6; }
+
+/* --- 2. NAVIGATIE BALK --- */
+.navbar { position: absolute; top: 0; left: 0; width: 100%; display: flex; padding: 1.5rem 2rem; z-index: 1100; align-items: center; }
+.nav-left { display: flex; align-items: center; gap: 1.5rem; }
+
+.hamburger { width: 30px; height: 18px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; z-index: 1200; position: relative; }
+.hamburger span { display: block; height: 3px; width: 100%; background: #fff; transition: 0.3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+.nav-home { 
+    background-color: #000000; 
+    color: #ffffff;            
+    border: none;              
+    padding: 5px 16px;         
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    border-radius: 0px;        
+    display: inline-block;     
+    letter-spacing: 1.5px;
+}
+
+/* --- 3. OVERLAY MENU --- */
+.nav-overlay {
+    position: fixed; inset: 0; width: 35%; background: #353C40; display: flex; flex-direction: column;
+    padding: 6rem 3rem 2rem; opacity: 0; visibility: hidden; transform: translateX(-100%);
+    transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1050; height: 100vh; overflow: hidden; 
+}
+.nav-overlay.active { opacity: 1; visibility: visible; transform: translateX(0); }
+.nav-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2.5px; transition: 0.4s; }
+.nav-links a:hover { color: #fff; letter-spacing: 4px; transform: translateX(8px); }
+.menu-brand { position: absolute; bottom: 2rem; left: 2rem; font-size: 2rem; font-weight: 900; color: rgba(255, 255, 255, 0.08); text-transform: uppercase; pointer-events: none; user-select: none; line-height: 1; }
+
+/* --- 4. HERO SECTIES (FOTO HEADERS) --- */
+.hero, .hero-page { 
+    height: 100vh; 
+    position: relative; 
+    background-size: cover; 
+    background-position: center; 
+    display: flex; 
+    align-items: flex-end; 
+    color: #fff; 
+}
+.hero::after, .hero-page::after { 
+    content: ''; 
+    position: absolute; 
+    inset: 0; 
+    background: rgba(0,0,0,0.25); 
+    z-index: 1; 
+}
+
+/* --- 5. VIDEO HEADER (DOEL PAGINA) --- */
+.hero-doel {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background: #000;
+}
+.video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+}
+.hero-doel .hero-content {
+    z-index: 2;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* --- 6. PAGINA CONTENT & GRIDS --- */
+
+.content-section, 
+.aanbod-section { 
+    /* 80px is de ruimte boven en onder, 2rem is de ruimte links en rechts */
+    padding: 80px 2rem !important; 
+    width: 100%; 
+    display: block;
+}
+
+/* De tekstblokken: centreren met flinke witruimte */
+.over-text-columns, 
+.aanbod-content { 
+    display: grid; 
+    grid-template-columns: 1fr 1.1fr; 
+    gap: 2.5rem; 
+    align-items: start;
+    max-width: 1100px; 
+    margin: 0 auto; 
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.over-text-columns .column h2,
+.aanbod-content h2 { 
+    font-size: 2.2rem; 
+    font-weight: 900; 
+    margin-top: 0 !important;
+    margin-bottom: 1.5rem; 
+    text-transform: uppercase; 
+}
+
+/* Behoud van het verticale lijntje */
+.over-text-columns .column:last-child,
+.aanbod-content p { 
+    border-left: 1px solid #eee; 
+    padding-left: 2.5rem; 
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Gallery & Terugblik Grids */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); background: #fbf9f9; }
+.gallery-item { 
+    position: relative; 
+    height: 100vh; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: #f7f5f5;
+}
+.gallery-item video { width: 100%; height: 100%; object-fit: contain; z-index: 1; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
+.gallery-item::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1; }
+
+.grid-widget {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff !important;
+}
+.widget-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    z-index: 2;
+    background: #fff !important;
+}
+
+.caption { position: absolute; bottom: 2rem; left: 2rem; color: #fff; z-index: 2; font-size: 0.9rem; pointer-events: none; }
+.caption strong { display: block; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 3px; }
+
+/* --- 7. ACHTERGRONDEN HOME (SECTIES ONDER ELKAAR) --- */
+.hero-home { 
+    background-image: url('afbeeldingen/home_anja.jpg'); 
+}
+
+.hero-2 { 
+    background-image: url('afbeeldingen/home_doel_kar.jpg'); 
+}
+
+.hero-3 { 
+    background-image: url('afbeeldingen/home_aanbod2.png'); 
+}
+
+.hero-4 { 
+    background-image: url('afbeeldingen/home_kerstbrinkmarkt.jpg'); 
+}
+/* --- 7.5 SPECIFIEKE PAGINA HEADERS (OVER & TERUGBLIK) --- */
+
+.hero-over { 
+    background-image: url('afbeeldingen/over_karretjetuin.jpg'); 
+}
+
+.hero-terugblik { 
+    background-image: url('afbeeldingen/terugblik_manon.jpg'); 
+}
+.hero-doel { 
+    background-image: url('afbeeldingen/doel_header_kar.jpg'); 
+}
+.hero-aanbod { 
+    background-image: url('afbeeldingen/aanbod_header.jpg'); 
+}
+
+/* Zorg dat de hero-page klasse dezelfde eigenschappen deelt als de home hero */
+.hero-page {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+}
+
+.hero-content { padding-left: 2rem; padding-bottom: 2rem; z-index: 2; position: relative; max-width: 600px; display: flex; flex-direction: column; align-items: flex-start; }
+.hero h1, .hero-page h1 { font-size: 1.3rem; font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 1.2rem; letter-spacing: 1.0px; }
+.hero-creed { font-size: 0.9rem; font-weight: 400; margin-bottom: 0.5rem; letter-spacing: 0.7px; text-transform: none !important; }
+.sub { font-size: 1.1rem; font-weight: 400; display: block; margin-top: 10px; line-height: 1.3; text-transform: none !important; }
+
+.cta-button {
+    display: inline-block; 
+    background-color: #000; 
+    color: #fff; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    border: none; 
+    cursor: pointer; 
+    margin-top: 1.5rem;
+    
+    /* DIT IS DE FIX */
+    margin-left: -2rem; 
+    padding: 12px 30px 12px 2rem; 
+    
+    align-self: flex-start; 
+    text-align: left; 
+    transition: 0.3s;
+}
+
+/* --- 8. FORMULIER & FOOTER --- */
+.contact-trigger-section { padding: 2rem; }
+h2#open-contact { font-size: 2.0rem; font-weight: 700; text-transform: uppercase; cursor: pointer; letter-spacing: 1px; }
+.contact-form-section { padding: 0 2rem 8rem; width: 100%; }
+.form-group { margin-bottom: 2.0rem; border-bottom: 1px solid #000; padding-bottom: 8px; }
+.form-group label { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #999; margin-bottom: 12px; }
+.form-group input, .form-group select, .form-group textarea { font-size: 1.0rem; border: none; width: 100%; outline: none; background: transparent; font-family: inherit; }
+.submit-button { display: inline-block; padding: 18px 50px; background: #000; color: #fff; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; margin-top: 2rem; }
+
+/* --- VOLLEDIGE FOOTER STYLING --- */
+.site-footer {
+    padding: 40px 0; /* Ruimte aan de uiterste boven- en onderkant van de footer */
+    text-align: center;
+    width: 100%;
+}
+
+.footer-thanks {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.instagram-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* De witruimte die het logo laat "ademen" */
+}
+
+.instagram-footer a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.insta-icon {
+    width: 26px; /* Bescheiden formaat voor een strelend oog */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.insta-handle {
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+}
+ 
+/* --- 10. GRID HERSTEL (OVER & TERUGBLIK) --- */
+.gallery-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; }
+.gallery-item.span-2 { grid-column: span 2 !important; }
+.gallery-item img { width: 100% !important; height: 100% !important; object-fit: cover !important; 
+}
+
+/* --- 11. KRUIDEN GRID & LUCHTFOTO'S (VOLLE BREEDTE) --- */
+
+.kruiden-grid {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem 2.5rem; 
+}
+
+.kruid-item img {
+    width: 100%;             
+    height: 350px;           
+    object-fit: cover;       /* GEWIJZIGD: Vult nu het hele kader */
+    background-color: #fff;  
+    padding: 0;              /* GEWIJZIGD: Padding verwijderd voor strakke lijn */
+    margin-top: 0 !important;          
+    margin-bottom: 0.5rem;   
+    display: block;
+}
+
+/* Zorg dat de container-aanbod uit de HTML ook in de CSS bestaat voor de lijning */
+.container-aanbod {
+    width: 100%;
+    padding: 0 2rem;         /* Matcht exact met de .navbar padding */
+    margin: 0 auto;
+}
+
+.luchtfoto-row {
+    display: flex !important;
+    align-items: center;
+    gap: 4rem;
+    width: 100% !important;
+    margin-bottom: 5rem;
+}
+
+/* --- 12. MOBIEL --- */
+@media (max-width: 768px) {
+    .nav-overlay { width: 100% !important; }
+    .kruiden-grid, .luchtfoto-row, .luchtfoto-row.reverse { display: flex !important; flex-direction: column !important; }
+    .luchtfoto-row img, .foto-info { width: 100% !important; height: auto !important; }
+    .kruiden-grid { grid-template-columns: 1fr !important; }
+    .over-text-columns { grid-template-columns: 1fr !important; }
+    .over-text-columns .column:last-child { border-left: none !important; padding-left: 0 !important; margin-top: 2rem; }
+    .hero-home { background-image: url('afbeeldingen/mobiel_anja.jpg') !important; }
+    .hero-content { padding: 0 2rem 1rem 2rem !important; text-align: left !important; display: flex !important; flex-direction: column !important; justify-content: flex-end !important; height: 100% !important; }
+    .cta-button { align-self: flex-start !important; margin-top: 1rem !important; }
+}
+/* --- 10. GRID HERSTEL (Zet deze helemaal onderaan je CSS) --- */
+
+.gallery-grid { 
+    display: grid !important; 
+    grid-template-columns: repeat(3, 1fr) !important; 
+    width: 100% !important;
+    background: #000;
+}
+
+.gallery-item { 
+    position: relative; 
+    height: 100vh; /* Dit geeft de foto's hun hoogte terug */
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.gallery-item img { 
+    width: 100% !important; 
+    height: 100% !important; 
+    object-fit: cover !important; 
+    display: block !important;
+    opacity: 1 !important; /* Voor het geval ze op onzichtbaar stonden */
+}
+
+/* Voor items die breder moeten zijn, zoals de span-2 op andere pagina's */
+.gallery-item.span-2 { 
+    grid-column: span 2 !important; 
+}
+/* --- 12. AANBOD: PRESENTATIE DESKTOP --- */
+.foto-row {
+    display: flex;
+    align-items: flex-end; /* DIT SCHUIFT HET BLOK NAAR DE ONDERKANT AFBEELDING */
+    gap: 2.5rem;           /* DIT VERKLEINT DE WITRUIMTE TUSSEN BEELD EN TEKST */
+    margin-bottom: 80px !important;
+    width: 100%;
+}
+
+.foto-wrap { 
+    flex: 1.5; 
+    line-height: 0;        /* Voorkomt extra witruimte onder de foto zelf */
+}
+
+.foto-tekst { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+    padding-bottom: 5px;   /* Kleine optische correctie voor de onderste lijn */
+}
+
+.foto-tekst h3 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.3rem; 
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.foto-tekst p {
+    max-width: 320px; 
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.kruiden-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.kruid-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* --- 13. PAUL HEIJMINK: DESKTOP LIJNING --- */
+.paul-section-fixed {
+    width: 100%;
+    padding: 40px 2rem 80px 2rem; 
+    box-sizing: border-box;
+}
+
+.paul-section-fixed h2 { margin: 0 0 15px 0; font-size: 2.2rem; font-weight: 900; text-transform: uppercase; }
+.paul-section-fixed p { margin: 0; max-width: 500px; line-height: 1.6; }
+
+/* --- 14. MOBIEL: RESET VAN DE DUBBELE INSPRINGING --- */
+@media (max-width: 768px) {
+    /* Stap 1: De basislijning van de pagina */
+    .content-section, 
+    .aanbod-section, 
+    .paul-section-fixed { 
+        padding: 30px 2rem !important; 
+    }
+
+    /* Stap 2: Schakel de grid/flex structuur uit (geen kolommen meer) */
+    .foto-row, 
+    .luchtfoto-row, 
+    .kruiden-grid,
+    .over-text-columns,
+    .aanbod-content {
+        display: block !important; /* Forceert alles onder elkaar */
+        width: 100% !important;
+        padding: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    /* Stap 3: Reset de tekstblokken (haalt de 'dubbele' inspringing weg) */
+    .foto-tekst, 
+    .foto-tekst p, 
+    .kruid-item p, 
+    .paul-section-fixed p,
+    .column {
+        width: 100% !important;
+        max-width: 100% !important; /* Gebruikt de volledige ruimte tussen de 2rem marges */
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important; /* Verwijdert eventuele lijntjes die ruimte innemen */
+    }
+
+    /* Stap 4: Zorg dat afbeeldingen de hele breedte pakken en strak lijnen */
+    .foto-wrap img, 
+    .luchtfoto-row img, 
+    .kruid-item img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        margin-bottom: 1.5rem !important; /* Ruimte tussen foto en de tekst eronder */
+    }
+
+    /* Stap 5: De titels ook strak op de lijn */
+    .foto-tekst h3, .paul-section-fixed h2 {
+        margin-bottom: 0.5rem !important;
+        margin-top: 0 !important;
+    }
+
+    /* Navigatie overlay fix */
+    .nav-overlay { width: 100% !important; }
+}
+
+@media (max-width: 768px) {
+    /* De afbeelding en de tekst 'aan elkaar plakken' */
+    .container-aanbod .kruid-item img {
+        margin-bottom: 0.3rem !important; /* Bijna geen ruimte meer */
+    }
+
+    .container-aanbod .kruid-item p {
+        margin-bottom: 2rem !important; /* Ruimte TOT het volgende kruid-item */
+    }
+
+    /* De knop op mobiel ook iets slanker als dat gewenst is */
+    .order-btn-subtle {
+        padding: 4px 20px !important; 
+    }
+}
+/* --- 15. FINALE MOBIELE GRID FIX (NAADLOOS) --- */
+@media (max-width: 768px) {
+    /* 1. Maak de grid-container onzichtbaar en naadloos */
+    .gallery-grid {
+        display: block !important;
+        height: auto !important;
+        background: #fff !important; /* Matcht je achtergrond, heft zwart op */
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 2. Verwijder alle witruimte tussen de items */
+    .gallery-item {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important; /* Geen 100vh meer */
+        margin: 0 !important;    /* Geen witruimte tussen foto's */
+        padding: 0 !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    /* 3. Zorg dat de foto's de volledige breedte pakken zonder kieren */
+    .gallery-item img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important; /* Voorkomt het 'inline' kiertje onderaan */
+        object-fit: cover !important;
+        position: relative !important;
+    }
+
+    /* 4. Specifiek voor de pagina DOEL (3-koloms naar 1) */
+    .grid-widget, .widget-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 40px 20px !important; /* Wat ademruimte voor tekst/widgets */
+    }
+
+    /* 5. Verwijder de donkere laag over de foto's */
+    .gallery-item::after {
+        display: none !important;
+    }
+    
+}
+/* --- 18. AANBOD: ALIGNMENT & KNOPPEN --- */
+
+/* 1. Paul Heijmink: Exacte kopie van de 'Over' tekst-layout */
+@media (min-width: 769px) {
+    .paul-section-fixed {
+        display: grid !important;
+        grid-template-columns: 1fr 1.1fr !important; /* Matcht exact de OVER pagina */
+        gap: 2.5rem !important;
+        max-width: 1100px !important;
+        margin: 80px auto !important; /* Ruimte boven/onder gelijk aan OVER */
+        padding: 0 2rem !important;
+        align-items: start !important;
+    }
+
+    /* Het lijntje links van de tweede kolom bij Paul */
+    .paul-section-fixed p {
+        border-left: 1px solid #eee !important;
+        padding-left: 2.5rem !important;
+        margin: 0 !important;
+    }
+}
+
+/* 2. Kruiden Grid: Fix tegen het "bewegen" van beelden */
+.kruiden-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2.5rem !important;
+    margin-bottom: 50px !important;
+}
+
+.kruid-item img {
+    width: 100% !important;
+    height: 350px !important; /* Vaste hoogte voorkomt springen */
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* 3. De Zwarte Knoppen: Herstel en Styling */
+/* We gebruiken meerdere selectors voor het geval de class-naam verschilt */
+.order-btn-subtle, 
+.bestel-knop, 
+a[href*="bestel"], 
+.cta-button.bestel {
+    display: inline-block !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    padding: 12px 30px !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 1px !important;
+    margin-top: 1.5rem !important;
+    transition: 0.3s !important;
+    border: none !important;
+}
+
+.order-btn-subtle:hover {
+    background-color: #333 !important;
+}
+
+/* 4. Mobiele fix voor deze nieuwe secties */
+@media (max-width: 768px) {
+    .paul-section-fixed {
+        display: block !important;
+        padding: 40px 2rem !important;
+    }
+    
+    .paul-section-fixed p {
+        border-left: none !important;
+        padding-left: 0 !important;
+        margin-top: 1.5rem !important;
+    }
+    
+    .kruiden-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+}
+/* ==========================================================================
+   Hidden Elements - Brinkgeluk Project AANBOD Paul Heijmink & Foto Row
+   ========================================================================== */
+
+.foto-row, 
+.paul-section-fixed {
+    display: none !important;
+}
+/* --- SPECIFIEKE FIX VOOR PAGINA DOEL: ARTSEN ZONDER GRENZEN WIDGET --- */
+/* --- FINALE FIX PAGINA DOEL: NAADLOOS WIT VLAK --- */
+
+.gallery-item.grid-widget {
+    background: #ffffff !important; /* Maakt de volledige kolom wit, weg met het grijs */
+    display: flex !important;
+    align-items: center !important; 
+    justify-content: center !important;
+    height: 100vh !important; /* Matcht de hoogte van de video's ernaast */
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* Verwijder de donkere overlay die standaard over gallery-items ligt */
+.gallery-item.grid-widget::after {
+    display: none !important;
+}
+
+/* --- PAGINA DOEL BIJWERKING BREEDTE WIDGET  --- */
+
+.grid-widget .widget-container {
+    width: 100% !important;
+    max-width: 800px !important; /* Verhoogd naar 800 voor volledige tekstbreedte */
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.grid-widget .widget-container iframe {
+    width: 100% !important;
+    max-width: 800px !important; /* Matcht met de HTML breedte */
+    height: 800px !important;
+    border: none !important;
+}
+
+@media (max-width: 768px) {
+    .grid-widget .widget-container iframe {
+        max-width: 100% !important; /* Dwingt de widget binnen de schermbreedte */
+        height: 600px !important;    /* Iets korter op mobiel is vaak fijner voor de scroll */
+    }
+}
+/* Maak de achtergrond van ALLE items in dit grid wit */
+.gallery-grid .gallery-item {
+    background: #ffffff !important;
+    text-decoration: none; /* Verwijdert streepjes onder tekst bij de links */
+}
+
+/* Zorg dat de video's klikbaar zijn en er geen donkere waas overheen zit */
+.grid-video {
+    cursor: pointer;
+    position: relative;
+}
+
+.grid-video::after {
+    display: none !important; /* Verwijdert de 30% zwarte overlay zodat het wit fris blijft */
+}
+
+/* Optioneel: een lichte zoom-reactie als je met de muis over de video gaat */
+.grid-video:hover video {
+    transform: scale(1.02);
+    transition: 0.5s;
+}
+
+/* Zorg dat de tekst (caption) wit blijft of pas deze aan naar zwart voor contrast op wit */
+.grid-video .caption {
+    color: #000; /* Zwarte tekst is vaak leesbaarder op een witte achtergrond-setting */
+}
+.footer-link {
+color: #12723a;
+text-decoration: underline;
+font-weight: bold;
+}
+
+.footer-link:hover {
+color: #1e3d1a;
+}
+.footer-link {
+color: #2d5a27;
+text-decoration: underline;
+font-weight: bold;
+}
+
+.footer-link:hover {
+color: #1e3d1a;
+}
+
+/* Compacte footer voor mobiel met link op regel 2 */
+@media (max-width: 600px) {
+.footer-link-block {
+display: block;  /* Houdt de link op de tweede regel */
+margin: 2px 0;   /* Maakt de witruimte boven/onder de link veel kleiner */
+line-height: 1.2;
+}
+
+}
