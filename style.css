@@ -723,4 +723,23 @@ margin: 2px 0;   /* Maakt de witruimte boven/onder de link veel kleiner */
 line-height: 1.2;
 }
 
+/* --- 19. IPAD & TABLET OPTIMALISATIE (VERBETERD) --- */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .gallery-grid {
+        display: block !important; /* Geen grid meer, maar een lijst */
+    }
+
+    .gallery-item {
+        width: 100% !important;
+        height: auto !important;   /* VERWIJDER VASTE HOOGTE: hoofden blijven nu zichtbaar */
+        margin-bottom: 20px;
+        background: #fff !important; 
+    }
+
+    .gallery-item img {
+        width: 100% !important;
+        height: auto !important;   /* De foto bepaalt nu zelf zijn hoogte */
+        object-fit: contain !important; /* De hele foto komt in beeld */
+        display: block;
+    }
 }
